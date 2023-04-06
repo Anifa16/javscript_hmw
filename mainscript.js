@@ -76,19 +76,19 @@ function noSpace(x){
 
 
  let factorial = (number) => {
-  // initialize fac variable to 1
+  // initialize fac =1 and counter=0 variable 
   let counter=0;
   let fac = 1;
 
-  // calculate factorial using a while loop
+  //need to calculate factorial using a while loop
   while (number > 0) {
     fac *= number;
     number--;
   }
 
-  // turn it into a string
+  // turn it into a string in js it toString()
   fac = fac.toString();
-  // for loop though though my string 
+  // for loop through my string  checking items at the end of string
   for (let i = fac.length - 1; i >= 0; i--) {
     if (fac[i] === "0") {
       counter += 1;
