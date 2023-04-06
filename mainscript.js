@@ -6,30 +6,23 @@ the list and checks that the current name is in the string passed in. The output
 */
 let dog_string = "Hello Max, my name is Dog, and I have purple eyes!";
 let dog_names = ["Max", "HAS", "PuRple", "dog"];
-
-function findWords() {
-  dog_names.forEach(function (item, index) {//this first 4 loop goes to do names
-    let regex = new RegExp(item); //this then I use the regular expression to check if we have any word that matches 
-    let matches = dog_string.match(regex);
-
-    if (matches) {
-      matches.forEach(function (match) { // if the we have a match I want it to print it out
-        let index = dog_string.indexOf(match);
-        console.log(`Matched ${match}`);
-      });
-    } else {
-      console.log(`No Match for ${item}`);
+// I need to create a function that take in a string and a lsi 
+function pet_Names_in_str(a_string, a_list) { 
+  // I need to create a 4 loop through loop to my list 
+  for (let i = 0; i < a_list.length; i++) {
+    // I need a if statement that tkes in my string and uses the includes method see if my liste items are include in string 
+    if (a_string.toLowerCase().includes(a_list[i].toLowerCase())) {
+      console.log(`Matched ${a_list[i]}`); // I just log it here to the console 
+    } else { // we have no much we will log no match 
+      console.log("No Match"); 
     }
-  });
+  }
 }
 
-findWords(); // here I'm caaling the fuction
+pet_Names_in_str(dog_string, dog_names);
 
-// Matched Max
-//No match for HAS 
-//no match for PURple because it capitals but of I do 'gi' inftont of line 12 I will all matches 
-//no match for a Dog because it starts with captial D
-      
+
+
 
 //Call method here with parameters
 
@@ -63,3 +56,49 @@ replaceEvens(given_arr); // here i call my fuction
 function noSpace(x){
    return x.replace(/\s/g, ""); //.replace to remove the space 
    }
+
+
+   //Write a program that will calculate the number of trailing zeros in a factorial of a given number.
+
+  // N! = 1 * 2 * 3 *  ... * N
+   
+  // Be careful 1000! has 2568 digits...
+   
+  // For more info, see: http://mathworld.wolfram.com/Factorial.html
+   
+  // Examples
+   //zeros(6) = 1
+  // # 6! = 1 * 2 * 3 * 4 * 5 * 6 = 720 --> 1 trailing zero
+   
+   //zeros(12) = 2
+   //# 12! = 479001600 --> 2 trailing zeros
+ //  Hint: You're not meant to calculate the factorial. Find another way to find the 
+
+
+ let factorial = (number) => {
+  // initialize fac variable to 1
+  let counter=0;
+  let fac = 1;
+
+  // calculate factorial using a while loop
+  while (number > 0) {
+    fac *= number;
+    number--;
+  }
+
+  // turn it into a string
+  fac = fac.toString();
+  // for loop though though my string 
+  for (let i = fac.length - 1; i >= 0; i--) {
+    if (fac[i] === "0") {
+      counter += 1;
+    } else {
+      break;
+    }
+  }
+
+  // return the count of trailing zeros
+  return counter;
+
+}
+
